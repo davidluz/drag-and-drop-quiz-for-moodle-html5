@@ -43,7 +43,14 @@ vazio[4] = game.add.sprite(358,435,'vazio');
 vazio[5] = game.add.sprite(358,572,'vazio');
 vazio[6] = game.add.sprite(358,780,'vazio');
 
-drag[1] = game.add.sprite(520, 50,'drag1');
+vazio[1].resposta = 1;
+vazio[2].resposta = 2;
+vazio[3].resposta = 3;
+vazio[4].resposta = 4;
+vazio[5].resposta = 5;
+vazio[6].resposta = 6;
+
+drag[1] = game.add.sprite(520, 50, 'drag1');
 drag[2] = game.add.sprite(520, 100,'drag2');
 drag[3] = game.add.sprite(520, 150,'drag3');
 drag[4] = game.add.sprite(520, 200,'drag4');
@@ -68,12 +75,12 @@ drag[i].events.onDragStop.add(largar, this);
 function  enviarResposta(){
 
 if(
-drag[1].y === 435||drag[1].y === 780&&
-drag[2].y === 78 && 
-drag[3].y === 168|| drag[3].y === 255&&
-drag[4].y === 572&&  
-drag[5].y === 780|| drag[5].y === 435&&
-drag[6].y === 168|| drag[6].y === 255
+drag[1].resposta===1&&
+drag[2].resposta===2&&
+drag[3].resposta===3&&
+drag[4].resposta===4&&
+drag[5].resposta===5&&
+drag[6].resposta===6
 ){
 
 alert("acertou!");
@@ -100,7 +107,8 @@ function largar(dropedItem){
 					if(Phaser.Rectangle.intersects(boundsA, boundsB)){
 					dropedItem.x = vazio[i].x;
     				dropedItem.y = vazio[i].y;
-    				    		
+					dropedItem.resposta = vazio[i].resposta;
+    				console.log(drag[1].resposta);  		
     				}    
     				
 				
